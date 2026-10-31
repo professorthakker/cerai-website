@@ -9,6 +9,13 @@
       toggle.setAttribute('aria-expanded', open);
       toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
     });
+    nav.addEventListener('click', function (e) {
+      if (e.target.closest('a[href^="#"]')) {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Open menu');
+      }
+    });
   }
 
   // Dropdowns (click/tap + keyboard)
